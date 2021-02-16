@@ -16,6 +16,8 @@
     "paths": {
       "core": ["core"],
       "scenes": ["scenes"],
+      "pods": ["pods"],
+      "layouts": ["layouts"],
     },
     "allowSyntheticDefaultImports": true,
   },
