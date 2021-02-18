@@ -22,9 +22,21 @@ export const LoginContainer: React.FC = () => {
     );
   };
 
+  const handleRecoverPassword = () => {
+    history.push(linkRoutes.recoverPassword);
+  };
+
+  const handleRegister = () => {
+    history.push(linkRoutes.register);
+  }
+
   return (
     <>
-      <LoginComponent onLogin={handleLogin} />
+      <LoginComponent
+        onLogin={handleLogin}
+        onRecoverPassword={handleRecoverPassword}
+        onRegister={handleRegister}
+      />
     </>
   );
 };

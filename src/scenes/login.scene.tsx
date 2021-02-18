@@ -1,4 +1,3 @@
-import { linkRoutes } from 'core/router';
 import React from 'react';
 import { LoginContainer } from 'pods/login';
 import { CenteredLayout } from 'layouts';

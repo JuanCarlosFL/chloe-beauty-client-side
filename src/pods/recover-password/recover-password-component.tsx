@@ -1,28 +1,27 @@
 import { Button, Grid, withStyles } from '@material-ui/core';
-import { LoginVM } from './login.vm';
 import img from '../../assets/logo-imagen-chloe.jpeg';
-import { createEmptyLogin } from './login.vm';
 import { Formik, Form } from 'formik';
 import { TextFieldComponent } from 'common/form';
 import React from 'react';
-import { formValidation } from './login.validation';
+import { createEmptyLogin, RecoverPasswordVM } from './recover-password.vm';
+import { formValidation } from './recover-password.validation';
 
-const ForgotPasswordButton = withStyles(() => ({
+const CancelButton = withStyles(() => ({
   root: {
-    color: 'primary',
-    justifyContent: 'start',
-    fontSize: '12px',
+    backgroundColor: '#bb2124',
+    '&:hover': {
+      backgroundColor: '#c4383a',
+    },
   },
 }))(Button);
 
 interface Props {
-  onLogin: (login: LoginVM) => void;
-  onRecoverPassword: () => void;
-  onRegister: () => void;
+  onLogin: (login: RecoverPasswordVM) => void;
+  onCancel: () => void;
 }
 
-export const LoginComponent: React.FC<Props> = props => {
-  const { onLogin, onRecoverPassword, onRegister } = props;
+export const RecoverPasswordComponent: React.FC<Props> = props => {
+  const { onLogin, onCancel } = props;
 
   return (
     <div style={{ display: 'flex', justifyContent: 'center' }}>
@@ -58,30 +57,32 @@ export const LoginComponent: React.FC<Props> = props => {
                   label="Contraseña"
                   type="password"
                 />
-                <ForgotPasswordButton
-                  color="primary"
-                  onClick={onRecoverPassword}
-                  style={{ marginTop: '10px' }}
-                >
-                  ¿Olvidó la contraseña?
-                </ForgotPasswordButton>
-                <Button
-                  type="submit"
-                  color="primary"
-                  variant="contained"
-                  style={{ marginTop: '15px' }}
-                >
-                  Iniciar sesión
-                </Button>
-                <div style={{ height: 20 }} />
-                <Button
-                  color="secondary"
-                  variant="contained"
-                  onClick={onRegister}
-                  style={{ marginTop: '10px' }}
-                >
-                  Regístrate
-                </Button>
+                <TextFieldComponent
+                  name="repeatPassword"
+                  label="Repetir Contraseña"
+                  type="password"
+                />
+                <Grid container justify="space-between" spacing={2}>
+                  <Button
+                    type="submit"
+                    size="medium"
+                    color="primary"
+                    variant="contained"
+                    style={{ marginTop: '25px' }}
+                  >
+                    Recuperar contraseña
+                  </Button>
+                  <div style={{ height: 20 }} />
+                  <CancelButton
+                    color="secondary"
+                    size="medium"
+                    variant="contained"
+                    onClick={onCancel}
+                    style={{ marginTop: '25px' }}
+                  >
+                    Cancelar
+                  </CancelButton>
+                </Grid>
               </div>
             </Form>
           )}

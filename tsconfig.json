@@ -18,6 +18,7 @@
       "scenes": ["scenes"],
       "pods": ["pods"],
       "layouts": ["layouts"],
+      "common": ["common"],
     },
     "allowSyntheticDefaultImports": true,
   },

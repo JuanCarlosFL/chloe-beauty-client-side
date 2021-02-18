@@ -12,6 +12,7 @@ module.exports = merge(
         scenes: helpers.resolveFromRootPath('src/scenes'),
         pods: helpers.resolveFromRootPath('src/pods'),
         layouts: helpers.resolveFromRootPath('src/layouts'),
+        common: helpers.resolveFromRootPath('src/common'),
       },
       extensions: ['.js', '.ts', '.tsx'],
     },
